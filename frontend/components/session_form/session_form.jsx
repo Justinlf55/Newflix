@@ -1,5 +1,6 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
+ 
 class SessionForm extends React.Component {
   constructor(props) {
     super(props);
@@ -8,6 +9,7 @@ class SessionForm extends React.Component {
       password: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handeDemoSubmit = this.handleDemoSubmit.bind(this);
   }
 
   update(field) {
@@ -19,6 +21,12 @@ class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
+    this.props.processForm(user);
+  }
+
+  handleDemoSubmit(e) {
+    e.preventDefault();
+    const user = { email: 'user2@gmail.com', password: '123456'};
     this.props.processForm(user);
   }
 
@@ -36,31 +44,55 @@ class SessionForm extends React.Component {
 
   render() {
     return (
-      <div className="login-box">
+      <div className="login-box tint-page">
+        <img class='welcome-background' src={window.images.welcome} alt=""/>
+        <div className="logo-div">
+          <Link to="/">
+            <img className='logo' src={window.images.logo} alt="logo"/>
+          </Link>
+        </div>
         <form onSubmit={this.handleSubmit} className='signin-form-container'>
           <br/>
-          <h2>{this.props.formType}</h2>
-          {this.renderErrors()}
+          <h1 className='session-form-title'>{this.props.formType}</h1>
           <div className="login-form">
-            <br/>
-            <label>Email:
-              <input type="text"
-                value={this.state.email}
+            <label>
+              <input 
+                type="text"
+                placeholder='Email'
                 onChange={this.update('email')}
-                className="login-input"
+                className="signin-input"
               />
             </label>
-            <br/>
-            <label>Password:
-              <input type="password"
-                value={this.state.password}
+            <div className='session-errors-div'>
+              <h5 className='session-errors'>{this.renderErrors()}</h5>
+            </div>
+            <label>
+              <input 
+                type="password"
+                placeholder='Password'
                 onChange={this.update('password')}
-                className="login-input"
+                className="signin-input"
               />
             </label>
             <br/>
-            <input className="session-submit" type="submit" value={this.props.formType} />
+            <input 
+              className="session-submit" 
+              type="submit" 
+              value={this.props.formType} 
+              />
+            <input 
+              className="demo-submit" 
+              type="submit" 
+              value='Demo Sign In' 
+              onClick={this.handleDemoSubmit}
+              />
+            <br/>
+            <label>Remember Me</label>
+              <input type="radio" name="radio" id="radio1"></input>
           </div>
+          <br/>
+          <p>New to Newflix?</p>
+          <Link className='signup-link' to='/signup'>Sign Up Now</Link>
         </form>
       </div>
     );

@@ -7,20 +7,26 @@ import { Redirect } from 'react-router';
 const Welcome = ({ currentUser, logout }) => {
   const sessionLinks = () => (
     <div>
-      <div className='welcome-page'>
+      <img src={window.images.welcome} alt=""/>
+      <div className='tint-page'>
         <div className="login-signup">
             <div className='logo-div'>
-              <img className='logo' src={window.logo.logo} alt="logo"/>
+              <Link to="/">
+                <img className='logo' src={window.images.logo} alt="logo"/>
+              </Link>
             </div>
             <div className='sign-in-div'>
               <Link className="signin" to="/login">Sign In</Link>
             </div>
-          {/* &nbsp;or&nbsp;
-          <Link to="/signup">Sign up!</Link> */}
         </div>
+        <br/>
         <div className='welcome-message'>
-          <h1>New Movies and TV Shows Every Week</h1>
-          <h3>Watch anywhere. Cancel anytime.</h3>
+          <div className='inner-welcome-div'>
+            <h1>New Movies and TV Shows Every Week</h1>
+            <h3>Watch anywhere. Cancel anytime.</h3>
+            <Link className="signup" to="/signup">Sign Up</Link>
+            {/* <Link className="signup" to="/signup">Demo</Link> */}
+          </div>
         </div>
       </div>
     </div>

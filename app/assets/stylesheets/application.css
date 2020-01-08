@@ -14,16 +14,20 @@
  *= require_self
  */
 
-body, html {
+/* html {
     height: 100%;
     background-image: url(https://assets.nflxext.com/ffe/siteui/vlv3/a1dc92ca-091d-4ca9-a05b-8cd44bbfce6a/fabab061-7e2b-47a9-be28-c3a53d2f0abd/US-en-20191230-popsignuptwoweeks-perspective_alpha_website_medium.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     background-color: rgba(0, 0, 0, 0.5);
-}
+} */
 
- .welcome-page {
+.welcome-background {
+    position: relative;
+    bottom: 0;
+}
+.tint-page {
     height: 100%;
     /* z-index: 1; */
     height: 100%;
@@ -36,8 +40,8 @@ body, html {
  }
 
 .logo {
-    width: 115px;
-    height: 45px;
+    width: 160px;
+    height: 75px;
  }
 
 .logo-div {
@@ -68,15 +72,33 @@ body, html {
     margin-top: 25px;
 }
 
+.signup {
+    background-color:#e50914;
+    color: white;
+    border-radius: 3px;
+    text-decoration: none;
+    padding: 8px 17px;
+    font-family: Helvetica, Arial, sans-serif;
+    position: absolute;
+    margin-top: 25px;
+    width: 40%;
+}
+
 .welcome-message {
-    text-align: center;
     color: white;
     font-family: Helvetica, Arial, sans-serif;
+    font-size: 150%;
+    margin: auto;
+}
+
+.inner-welcome-div {
+    text-align: center;
+    margin: auto;
 }
 
 .signin-form-container {
-    width: 320px;
-    height: 420px;
+    width: 460px;
+    height: 680px;
     background: rgba(0, 0, 0, 0.82);
     color: white;
     top: 50%;
@@ -84,7 +106,131 @@ body, html {
     position: absolute;
     transform: translate(-50%, -50%);
     box-sizing: border-box;
+    text-align: center;
+    border-radius: 3px;
+    font-family: Helvetica, Arial, sans-serif;
 } 
 
+.signin-form-container .signin-input {
+    display: block;
+}
 
+.signin-input {
+    background-color: #333333;
+    color: white;
+    display: inline-block;
+    padding: 20px;
+    width: 70%;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 2px;
+    margin: 10px auto;
+    transition:background-color 0.5s ease;
+    border-radius: 3px;
+    font-size: 90%;
+}
+
+.session-submit {
+    border: none;
+    color: white;
+    display: inline-block;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 20px 50px;
+    width: 70%;
+    border-radius: 3px;
+    margin:5px;
+    border-bottom-style: none;
+    border-bottom-width: 3px;
+    transition: text-shadow 0.3s ease;
+    background-color: #e50914;
+    font-weight: bold;
+    font-size: 90%;
+}
+
+.demo-submit {
+    border: none;
+    color: white;
+    display: inline-block;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 20px 50px;
+    width: 70%;
+    border-radius: 3px;
+    margin:5px;
+    border-bottom-style: none;
+    border-bottom-width: 3px;
+    transition: text-shadow 0.3s ease;
+    background-color: gray;
+    font-weight: bold;
+    font-size: 90%;
+}
+
+.session-submit:hover {
+    text-shadow: 2px 2px 0px rgba(0,0,0,.3);
+    cursor: pointer;
+  }
+
+.demo-submit:hover {
+    text-shadow: 2px 2px 0px rgba(0,0,0,.3);
+    cursor: pointer;
+}
+
+.session-errors-div {
+    text-align: center;
+
+}
+
+.session-errors {
+    list-style: none;
+    color: orange;
+}
+
+#radio1 {
+    background: rgba(191,185,169,.2);
+	height: 16px;
+	cursor: pointer;
+	border-radius: 3px;
+	width:16px;
+	-moz-appearance:none;
+	-webkit-appearance:none;
+	box-shadow: 0 1px 2px rgba(0,0,0,.44) inset;
+	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.44) inset;
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.44) inset;
+    vertical-align: middle;
+}
+
+input[type="radio"] {
+	border-radius: 50%;
+	-moz-border-radius: 50%;
+	-webkit-border-radius: 50%;
+}
+
+input[type="checkbox"]:checked, input[type="radio"]:checked {
+    background: #5E5D58;
+    box-shadow: 0 1px 2px rgba(0,0,0,.44);
+    -moz-box-shadow: 0 1px 2px rgba(0,0,0,.44);
+      -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.44);
+}
+
+/* .movie-index {
+    color: white;
+} */
+
+.navdiv {
+    background: white;
+    color: white;
+} 
+
+.navbar {
+    background: #141414;
+    list-style: none;
+    font-family: Helvetica, Arial, sans-serif;
+    text-decoration: none;
+}
+
+.navbar li a{
+    text-decoration: none;
+    color: white;
+}
 

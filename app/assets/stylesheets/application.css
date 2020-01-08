@@ -1,0 +1,90 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+body, html {
+    height: 100%;
+    background-image: url(https://assets.nflxext.com/ffe/siteui/vlv3/a1dc92ca-091d-4ca9-a05b-8cd44bbfce6a/fabab061-7e2b-47a9-be28-c3a53d2f0abd/US-en-20191230-popsignuptwoweeks-perspective_alpha_website_medium.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+ .welcome-page {
+    height: 100%;
+    /* z-index: 1; */
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    overflow: auto;
+    top: 0px;
+    left: 0px;
+    background: rgba(0, 0, 0, 0.5);
+ }
+
+.logo {
+    width: 115px;
+    height: 45px;
+ }
+
+.logo-div {
+    padding: 8px 17px;
+    margin-top: 15px;
+    margin-left: 22px;
+}
+
+.login-signup {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+ }
+
+.sign-in-div {
+    height: 15px;
+    width: 130px;
+}
+
+.signin {
+    background-color:#e50914;
+    color: white;
+    border-radius: 3px;
+    text-decoration: none;
+    padding: 8px 17px;
+    font-family: Helvetica, Arial, sans-serif;
+    position: absolute;
+    margin-top: 25px;
+}
+
+.welcome-message {
+    text-align: center;
+    color: white;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+.signin-form-container {
+    width: 320px;
+    height: 420px;
+    background: rgba(0, 0, 0, 0.82);
+    color: white;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+} 
+
+
+

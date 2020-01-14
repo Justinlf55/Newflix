@@ -5,17 +5,21 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+      <script type="text/javascript">
+        window.images = {
+          logo: '<%= image_url('newflix_logo.png')%>',
+          welcome: '<%= image_url('welcome_background.jpg')%>',
+          spacejam: '<%= image_url('spacejam.jpg')%>',
+          icon: '<%= image_url('account-icon.png')%>'
+        }
+      </script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <script src="https://kit.fontawesome.com/5b5689ab39.js" crossorigin="anonymous"></script>
   </head>
 
-  <script type="text/javascript">
-    window.images = {
-      logo: '<%= image_url('newflix_logo.png')%>',
-      welcome: '<%= image_url('welcome_background.jpg')%>'
-    }
-  </script>
+
 
   <body>
     <%= yield %>

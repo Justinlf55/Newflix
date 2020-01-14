@@ -8,7 +8,7 @@ import {
 
     switch(action.type) {
       case RECEIVE_MOVIES:
-        return action.benches;
+        return action.movies;
       case RECEIVE_MOVIE:
         const newMovie = { [action.movie.id]: action.movie };
         return Object.assign({}, state, newMovie);

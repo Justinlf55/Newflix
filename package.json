@@ -13,6 +13,7 @@
     "redux": "^4.0.5",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
+    "video-react": "^0.14.1",
     "webpack": "^4.41.5"
   },
   "description": "This README would normally document whatever steps are necessary to get the application up and running.",

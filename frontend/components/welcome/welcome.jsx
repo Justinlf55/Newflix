@@ -7,7 +7,7 @@ import { Redirect } from 'react-router';
 const Welcome = ({ currentUser, logout }) => {
   const sessionLinks = () => (
     <div>
-      <img src={window.images.welcome} alt=""/>
+      <img className='welcome-background' src={window.images.welcome} alt=""/>
       <div className='tint-page'>
         <div className="login-signup">
             <div className='logo-div'>
@@ -24,8 +24,8 @@ const Welcome = ({ currentUser, logout }) => {
           <div className='inner-welcome-div'>
             <h1>New Movies and TV Shows Every Week</h1>
             <h3>Watch anywhere. Cancel anytime.</h3>
-            <Link className="signup" to="/signup">Sign Up</Link>
-            {/* <Link className="signup" to="/signup">Demo</Link> */}
+            <Link className="signup" to="/signup">TRY 30 DAYS FREE</Link>
+            {/* <h5>Ready to watch? Enter your email to create or access your account Email address</h5> */}
           </div>
         </div>
       </div>

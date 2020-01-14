@@ -4,13 +4,19 @@ import { Link } from 'react-router-dom';
 class SessionForm extends React.Component {
   constructor(props) {
     super(props);
+    this.totalTimer = 0;
     this.state = {
       email: '',
       password: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handeDemoSubmit = this.handleDemoSubmit.bind(this);
+    this.handleDemoSubmit = this.handleDemoSubmit.bind(this);
   }
+
+  componentDidMount() {
+    this.props.clearErrors();
+  }
+
 
   update(field) {
     return e => this.setState({
@@ -21,14 +27,56 @@ class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
-    this.props.processForm(user);
+    setTimeout((this.props.processForm(user)),this.totalTimer);
   }
 
   handleDemoSubmit(e) {
     e.preventDefault();
-    const user = { email: 'user2@gmail.com', password: '123456'};
-    this.props.processForm(user);
+    const user = Object.assign({},{
+      email: 'demo@gmail.com',
+      password: '123456'
+    })
+    this.demo(user)
   }
+
+ 
+  demo(user) {
+    const intervalSpeed = 75;
+    const { email, password } = user;
+    const demoEmailTime = email.length * intervalSpeed;
+    const demoPasswordTime = password.length * intervalSpeed;
+    const buffer = intervalSpeed * 2;
+    const totalDemoTime = demoEmailTime + demoPasswordTime + buffer;
+    this.totalTimer = demoEmailTime + demoPasswordTime;
+    this.demoEmail(email, intervalSpeed);
+    setTimeout(() => this.demoPassword(password, intervalSpeed), demoEmailTime);
+    setTimeout(() => this.props.processForm(user), totalDemoTime)
+  }
+
+  demoEmail(email, intervalSpeed) {
+    let i = 0;
+    setInterval(() => {
+      if (i <= email.length) {
+        this.setState({ email: email.slice(0, i) })
+        i++
+      } else {
+        clearInterval()
+      }
+    }, intervalSpeed);
+  }
+
+  demoPassword(password, intervalSpeed) {
+    let j = 0;
+    setInterval(() => {
+      if (j <= password.length) {
+        this.setState({ password: password.slice(0, j) })
+        j++
+      } else {
+        clearInterval();
+      }
+    }, intervalSpeed);
+  }
+
 
   renderErrors() {
     return(
@@ -43,9 +91,12 @@ class SessionForm extends React.Component {
   }
 
   render() {
+    const display = this.props.formType === 'Sign Up' ? '' 
+    : <p>New to Newflix? <Link className='signup-link' to='/signup'>Sign Up Now</Link></p>
+    
     return (
       <div className="login-box tint-page">
-        <img class='welcome-background' src={window.images.welcome} alt=""/>
+        <img className='welcome-background' src={window.images.welcome} alt=""/>
         <div className="logo-div">
           <Link to="/">
             <img className='logo' src={window.images.logo} alt="logo"/>
@@ -59,6 +110,7 @@ class SessionForm extends React.Component {
               <input 
                 type="text"
                 placeholder='Email'
+                value={this.state.email}
                 onChange={this.update('email')}
                 className="signin-input"
               />
@@ -69,6 +121,7 @@ class SessionForm extends React.Component {
             <label>
               <input 
                 type="password"
+                value={this.state.password}
                 placeholder='Password'
                 onChange={this.update('password')}
                 className="signin-input"
@@ -91,8 +144,7 @@ class SessionForm extends React.Component {
               <input type="radio" name="radio" id="radio1"></input>
           </div>
           <br/>
-          <p>New to Newflix?</p>
-          <Link className='signup-link' to='/signup'>Sign Up Now</Link>
+            {display}
         </form>
       </div>
     );

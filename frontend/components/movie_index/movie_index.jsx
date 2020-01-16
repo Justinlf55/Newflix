@@ -7,27 +7,25 @@ class MovieIndex extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            on: false,
+            sound: false,
         }
-
-        this.handleGenreToggle = this.handleGenreToggle.bind(this);
     }
 
     componentDidMount() {
         this.props.fetchMovies();
         const video = document.getElementById('back-video');
-        debugger
         video.play();
     }
 
-    handleGenreToggle() {
-        this.setState({on: !this.state.on})
-        console.log(this.state);
-    }
+    // unmute() {
+    //     const video = document.getElementById('back-video');
+    //     // video.muted() = !this.setState(sound)
+    // }
 
-    render() {
-        // let genreToggle = this.state.on ? 'genre-toggle-off' : 'genre-toggle-on';
-        
+
+
+
+    render() {   
         if (!this.props.movies[0]) this.props.movies[0] = '';
 
         const { movies } = this.props;
@@ -54,19 +52,33 @@ class MovieIndex extends React.Component {
                             <Link to='/genres/8'>Sci-Fi</Link>
                         </div>
                     </div>
-                    <video 
-                        className='background-video'
-                        id = 'back-video'
-                        src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4" 
-                        autoPlay>
-                    </video>
+                    <div className='background-video-div'>
+                        <img className="background-video-logo" src="https://newflix-aa-seeds.s3-us-west-1.amazonaws.com/joker-logo.png" alt="spacejamlogo"/>
+                        <h5 className="background-video-description">Forever alone in a crowd, failed comedian 
+                            Arthur Fleck seeks connection as he walks the streets 
+                            of Gotham City. Arthur wears two masks -- the one he 
+                            paints for his day job as a clown, and the guise he 
+                            projects in a futile attempt to feel like he's part 
+                            of the world around him. Isolated, bullied and disregarded 
+                            by society, Fleck begins a slow descent into madness as he 
+                            transforms into the criminal mastermind known as the Joker.
+                        </h5>
+                    </div>
                 </div>
+                <video 
+                    className='background-video'
+                    id = 'back-video'
+                    src="https://newflix-aa-seeds.s3-us-west-1.amazonaws.com/joker.mp4"
+                    // https://media.w3.org/2010/05/sintel/trailer_hd.mp4 
+                    autoPlay={true}
+                    muted="muted"
+                />
                 <div className='movie-index'>
                     {
                         movies.map(movie => (
                             <MovieIndexItem
                                 movie={movie}
-                                key={movie.id}
+                                key={`${movie.id}`}
                             />
                         ))
                     }

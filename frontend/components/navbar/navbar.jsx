@@ -9,10 +9,10 @@ class NavBar extends React.Component {
             <div className='full-nav'>
                 <div className='nav-left'>
                     <ul className='navbar'>
-                        <li><Link to='/'>
+                        <li><Link to='/movies'>
                             <img className='navbar-logo' src={window.images.logo} alt="logo"/>
                         </Link></li>
-                        <li><Link to='/'>Home</Link></li>
+                        <li><Link to='/movies'>Home</Link></li>
                         <li><Link to='/movies'>Movies</Link></li>
                         <li><Link to='/my-list'>My List</Link></li>
                     </ul>

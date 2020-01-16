@@ -10,6 +10,7 @@ class User < ApplicationRecord
     through: :watchlist,
     source: :movie
 
+
     before_validation :ensure_session_token 
 
     def self.find_by_credentials(email, password)

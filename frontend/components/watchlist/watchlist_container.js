@@ -6,7 +6,7 @@ import { selectMovie } from '../../reducers/selectors';
 import Watchlist from '../watchlist/watchlist';
 
 const mapStateToProps = state => ({
-    watchlist: state.entities.watchlist,
+    watchlist: Object.values(state.entities.watchlist),
     movies: state.entities.movies
 });
 

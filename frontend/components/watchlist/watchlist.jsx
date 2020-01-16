@@ -9,24 +9,28 @@ class Watchlist extends React.Component {
     }
 
     render() {
-        if (!this.props.watchlist) {
-            return null;
-        }
-
         if ( !this.props.movies ) {
             return null;
         }
 
+        console.log('between movies and watchlist props')
+        if (!this.props.watchlist) {
+            return null;
+        }
 
-        const { watchlist, movies } = this.props;
-        const id = watchlist.movieId;
+
+        let { watchlist, movies } = this.props;
+        
+        watchlist = watchlist.map(list => list.movieId)
+
+        console.log(movies)
     
 
-        if (!movies[id]) {
+        if (!movies[watchlist[0]]) {
             return null;
         }
         
-        console.log(movies[id]);
+        // console.log(movies[id]);
         return(
             <div>
                 <div className='navdiv'>
@@ -34,11 +38,15 @@ class Watchlist extends React.Component {
                 </div>
                 <h1 className='page-title'>My List</h1>
                 <div className='watchlist'>
-                </div>       
-                <MovieIndexItem 
-                    movie={movies[id]}
-                    // key={movie.id}
-                />
+                </div> 
+                {
+                    watchlist.map( movieId => (
+                        <MovieIndexItem 
+                        movie={movies[movieId]}
+                        key={movieId}
+                    />                       
+                    ))
+                }      
             </div>            
         )
     }

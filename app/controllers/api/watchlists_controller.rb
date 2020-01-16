@@ -2,7 +2,7 @@ class Api::WatchlistsController < ApplicationController
     before_action :require_logged_in
 
     def index
-        @watchlist = current_user.watchlist 
+        @watchlists = Watchlist.where("user_id = #{current_user.id}")
         render :index
     end
 

@@ -1,5 +1,5 @@
 class Movie < ApplicationRecord
-    validates :title, :rating, :year, :image_url, presence: true
+    validates :title, :rating, :year, :description, presence: true
 
     has_many :movie_genres
     has_many :watchlists
@@ -13,5 +13,6 @@ class Movie < ApplicationRecord
     source: :user
 
     has_one_attached :image
+    has_one_attached :video
 
 end

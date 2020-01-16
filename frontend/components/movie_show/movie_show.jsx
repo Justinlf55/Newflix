@@ -1,10 +1,12 @@
 import React from 'react';
-import { Player } from 'video-react';
+
 
 
 class MovieShow extends React.Component {
     componentDidMount() {
         this.props.fetchMovie(this.props.match.params.movieId);
+        const video = document.getElementById('movie-player');
+        if (video !== null) video.play();
     }
 
     render () {
@@ -13,22 +15,15 @@ class MovieShow extends React.Component {
         }
 
         const { movie } = this.props;
-        
+    
         return (
-            <div>
+            <div className='video-show'>
                 <video 
                     className='video-player' 
-                    src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4" 
+                    id = 'movie-player'
+                    src={movie.videoUrl}
                     controls>
                 </video>
-                {/* <div className='controls'>
-                    <div className='time-bar'>
-                        <div className='color-bar'></div>
-                    </div>
-                    <div className='video-button'>
-                        <button className='play-pause'></button>
-                    </div>
-                </div> */}
             </div>
         )
     }

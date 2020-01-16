@@ -5,6 +5,7 @@ const watchlistReducer = (state={}, action) => {
 
     switch(action.type) {
         case RECEIVE_WATCHLIST:
+            debugger
             return action.watchlist;
         default:
             return state;

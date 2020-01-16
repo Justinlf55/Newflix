@@ -28,7 +28,7 @@ class GenreShow extends React.Component {
                     <h4 className='movie-genre'>Movies  ></h4>
                     <h1 className='genre-name'>{this.props.genre.name}</h1>
                 </div>
-                <div className='movie-index'>
+                <div className='genre-movie-index'>
                     {
                         movies.map(movie => (
                             <MovieIndexItem

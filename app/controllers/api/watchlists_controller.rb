@@ -7,8 +7,17 @@ class Api::WatchlistsController < ApplicationController
     end
 
     def create
+        @watchlist = Watchlist.new(watchlist_params)
+        @watchlist.user_id = current_user.id
+        @watchlist.save
+        render :index
     end
     
     def destroy
+    end
+
+    private 
+    def watchlist_params
+        params.require(:watchlist).permit(:movie_id)
     end
 end

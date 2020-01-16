@@ -13,7 +13,6 @@ class Watchlist extends React.Component {
             return null;
         }
 
-        console.log('between movies and watchlist props')
         if (!this.props.watchlist) {
             return null;
         }
@@ -23,14 +22,12 @@ class Watchlist extends React.Component {
         
         watchlist = watchlist.map(list => list.movieId)
 
-        console.log(movies)
     
 
         if (!movies[watchlist[0]]) {
             return null;
         }
         
-        // console.log(movies[id]);
         return(
             <div>
                 <div className='navdiv'>

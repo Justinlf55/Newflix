@@ -10,3 +10,7 @@ export const receiveWatchlist = watchlist => ({
 export const fetchWatchlist = () => dispatch => (
     WatchlistAPIUtil.fetchWatchlist().then(watchlist => dispatch(receiveWatchlist(watchlist)))
 )
+
+export const addToWatchlist = movie => dispatch => (
+    WatchlistAPIUtil.addToWatchlist(movie).then(addedMovie => dispatch(receiveWatchlist(addedMovie)))
+)

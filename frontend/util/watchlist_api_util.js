@@ -5,3 +5,11 @@ export const fetchWatchlist = watchlist => (
       watchlist
     })
 );
+
+export const addToWatchlist = movie => (
+  $.ajax({
+    method: 'POST',
+    url: '/api/watchlists',
+    data: { movie }
+  })
+);

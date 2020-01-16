@@ -9,6 +9,8 @@ class MovieIndex extends React.Component {
         this.state = {
             sound: false,
         }
+
+        // this.unmute = this.unmute.bind(this);
     }
 
     componentDidMount() {
@@ -17,10 +19,10 @@ class MovieIndex extends React.Component {
         video.play();
     }
 
-    // unmute() {
-    //     const video = document.getElementById('back-video');
-    //     // video.muted() = !this.setState(sound)
-    // }
+    unmute() {
+        const video = document.getElementById('back-video');
+        if (!video.muted) video.muted = false;
+    }
 
 
 
@@ -28,7 +30,7 @@ class MovieIndex extends React.Component {
     render() {   
         if (!this.props.movies[0]) this.props.movies[0] = '';
 
-        const { movies } = this.props;
+        const { movies, addToWatchlist } = this.props;
 
         return (
             <div>
@@ -63,6 +65,7 @@ class MovieIndex extends React.Component {
                             by society, Fleck begins a slow descent into madness as he 
                             transforms into the criminal mastermind known as the Joker.
                         </h5>
+                        {/* <button onClick={this.unumute}>Sound</button> */}
                     </div>
                 </div>
                 <video 
@@ -72,12 +75,14 @@ class MovieIndex extends React.Component {
                     // https://media.w3.org/2010/05/sintel/trailer_hd.mp4 
                     autoPlay={true}
                     muted="muted"
+                    loop
                 />
                 <div className='movie-index'>
                     {
                         movies.map(movie => (
                             <MovieIndexItem
                                 movie={movie}
+                                addToWatchlist={addToWatchlist}
                                 key={`${movie.id}`}
                             />
                         ))

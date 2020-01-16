@@ -570,3 +570,16 @@ input[type="checkbox"]:checked, input[type="radio"]:checked {
      width: 190%;
      font-size: larger;
  }
+
+ .watchlist-btn {
+    border: #e50914 1px solid;
+    border-radius: 20px;
+    margin-top: -55px;
+    background: #e50914;
+    color: white;
+    position: absolute;
+ }
+
+ .watchlist-btn:hover {
+    cursor: pointer;
+ }

@@ -5,13 +5,13 @@ class MovieIndexItem extends React.Component {
     constructor(props) {
         super(props);
 
-        // this.handleDemoSubmit = this.handleDemoSubmit.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleSubmit(e) {
         e.preventDefault();
-        const user = Object.assign({}, this.state);
-        setTimeout((this.props.processForm(user)),this.totalTimer);
+        const movie = Object.assign({}, {movie_id: this.props.movie.id});
+        this.props.addToWatchlist(movie);
     }
 
     render() {
@@ -19,10 +19,12 @@ class MovieIndexItem extends React.Component {
 
         return (
 
-            <div >
+            <div>
                 <Link id="thumbnail" to={`/movies/${movie.id}`}><img className='movie-index-item' src={movie.photoUrl} alt="Space Jam"/></Link>
-                <form></form>
-                <input type="submit"/>
+                <form onSubmit={this.handleSubmit}>
+                    <input type="hidden" value={movie.id}/>
+                    <button className='watchlist-btn'><i class="fas fa-plus"></i></button>
+                </form>
             </div>
         )
     }

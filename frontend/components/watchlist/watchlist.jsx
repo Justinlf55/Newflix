@@ -35,7 +35,6 @@ class Watchlist extends React.Component {
                 </div>
                 <h1 className='page-title'>My List</h1>
                 <div className='watchlist'>
-                </div> 
                 {
                     watchlist.map( movieId => (
                         <MovieIndexItem 
@@ -43,7 +42,8 @@ class Watchlist extends React.Component {
                         key={movieId}
                     />                       
                     ))
-                }      
+                }     
+                </div>  
             </div>            
         )
     }

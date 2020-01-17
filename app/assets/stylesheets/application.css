@@ -571,6 +571,17 @@ input[type="checkbox"]:checked, input[type="radio"]:checked {
      font-size: larger;
  }
 
+ .watchlist {
+    margin-left: 55px;
+    display: flex;
+    flex-direction: row;
+    z-index: 1;
+    flex-wrap: wrap;
+    scrollbar-width: none;
+    transition: transform 450ms;
+    position: relative;
+ }
+
  .watchlist-btn {
     border: #e50914 1px solid;
     border-radius: 20px;

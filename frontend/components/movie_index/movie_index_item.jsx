@@ -23,7 +23,7 @@ class MovieIndexItem extends React.Component {
                 <Link id="thumbnail" to={`/movies/${movie.id}`}><img className='movie-index-item' src={movie.photoUrl} alt="Space Jam"/></Link>
                 <form onSubmit={this.handleSubmit}>
                     <input type="hidden" value={movie.id}/>
-                    <button className='watchlist-btn'><i class="fas fa-plus"></i></button>
+                    <button className='watchlist-btn'><i className="fas fa-plus"></i></button>
                 </form>
             </div>
         )

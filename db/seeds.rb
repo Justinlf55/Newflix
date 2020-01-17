@@ -11,6 +11,27 @@ require 'open-uri'
 Movie.destroy_all
 MovieGenre.destroy_all
 Watchlist.destroy_all 
+User.destroy_all
+Genre.destroy_all
+
+# ------------------------------------------------------------------------------------
+
+User.create(email: 'demo@gmail.com', password:'123456')
+
+#-------------------------------------------------------------------------------------
+
+# action = Genre.create(name: 'Action')
+# comedy = Genre.create(name: 'Comedy')
+# documentary = Genre.create(name: 'Documentary')
+# drama = Genre.create(name: 'Drama')
+# horror = Genre.create(name: 'Horror')
+# sports = Genre.create(name: 'Sports')
+# thrillers = Genre.create(name: 'Thrillers')
+# sci_fi = Genre.create(name: 'Sci-Fi')
+
+
+
+
 
 # ------------------------------------------------------------------------------------
 
@@ -29,6 +50,9 @@ players, including Larry Bird (Larry Bird)
 and Charles Barkley (Charles Barkley) -- s
 o Bugs gets some help from superstar 
 Michael Jordan (Michael Jordan).')
+
+# MovieGenre.create(movie_id: spacejam.id, genre_id: sports.id)
+# MovieGenre.create(movie_id: spacejam.id, genre_id: sci_fi.id)
 
 MovieGenre.create(movie_id: spacejam.id, genre_id: 6)
 MovieGenre.create(movie_id: spacejam.id, genre_id: 8)
@@ -54,7 +78,9 @@ marry and move in together, it turns the overgrown
 and narcissism pull the new family apart, forcing 
 them to work together to reunite their parents.')
 
+# MovieGenre.create(movie_id: stepbros.id, genre_id: comedy.id)
 MovieGenre.create(movie_id: stepbros.id, genre_id: 2)
+
 
 file = open('https://newflix-aa-seeds.s3-us-west-1.amazonaws.com/stepbrothers.jpeg')
 stepbros.image.attach(io: file, filename: 'stepbrothers.jpeg')
@@ -78,7 +104,9 @@ However, when old film footage and other clues hint at
 the presence of a supernatural force, Ellison learns 
 that living in the house may be fatal.')
 
+# MovieGenre.create(movie_id: sinister.id, genre_id: horror.id)
 MovieGenre.create(movie_id: sinister.id, genre_id: 5)
+
 
 
 file = open('https://newflix-aa-seeds.s3-us-west-1.amazonaws.com/sinister.jpeg')
@@ -101,6 +129,8 @@ of the world around him. Isolated, bullied and disregarded
 by society, Fleck begins a slow descent into madness as he 
 transforms into the criminal mastermind known as the Joker.')
 
+# MovieGenre.create(movie_id: joker.id, genre_id: drama.id)
+# MovieGenre.create(movie_id: joker.id, genre_id: thrillers.id)
 MovieGenre.create(movie_id: joker.id, genre_id: 4)
 MovieGenre.create(movie_id: joker.id, genre_id: 7)
 
@@ -125,6 +155,9 @@ off on the LAPD, who assign wisecracking Detective James Carter
 cannot stand each other, they choose to work together to solve 
 the case on their own when they figure out they have been ditched 
 by both the FBI and police.')
+
+# MovieGenre.create(movie_id: rush.id, genre_id: action.id)
+# MovieGenre.create(movie_id: rush.id, genre_id: comedy.id)
 
 MovieGenre.create(movie_id: rush.id, genre_id: 1)
 MovieGenre.create(movie_id: rush.id, genre_id: 2)
@@ -152,6 +185,9 @@ But first, Brand must send former NASA pilot Cooper
 wormhole and across the galaxy to find out which of three 
 planets could be /"mankind/"s new home.')
 
+# MovieGenre.create(movie_id: interstellar.id, genre_id: drama.id)
+# MovieGenre.create(movie_id: interstellar.id, genre_id: sci_fi.id)
+
 MovieGenre.create(movie_id: interstellar.id, genre_id: 4)
 MovieGenre.create(movie_id: interstellar.id, genre_id: 8)
 
@@ -177,6 +213,9 @@ championship season. When he is criticized by the players and their
 parents, he sticks to his guns, determined that they excel in class as 
 well as on the court.')
 
+# MovieGenre.create(movie_id: coach_carter.id, genre_id: drama.id)
+# MovieGenre.create(movie_id: coach_carter.id, genre_id: sports.id)
+
 MovieGenre.create(movie_id: coach_carter.id, genre_id: 4)
 MovieGenre.create(movie_id: coach_carter.id, genre_id: 6)
 
@@ -201,6 +240,9 @@ goes nowhere and /"Danny/"s visions become more disturbing, Jack discovers
 the /"hotel/"s dark secrets and begins to unravel into a homicidal maniac 
 hell-bent on terrorizing his family.')
 
+# MovieGenre.create(movie_id: shining.id, genre_id: horror.id)
+# MovieGenre.create(movie_id: shining.id, genre_id: thrillers.id)
+
 MovieGenre.create(movie_id: shining.id, genre_id: 5)
 MovieGenre.create(movie_id: shining.id, genre_id: 7)
 
@@ -224,7 +266,10 @@ of the group, has the gun. But Q has different aspirations. He wants to be a DJ
 and happens to have a gig the night of the robbery. Unfortunately for him, Bishop 
 is not willing to take no for answer in a game where everything is for keeps.')
 
+# MovieGenre.create(movie_id: juice.id, genre_id: drama.id)
+
 MovieGenre.create(movie_id: juice.id, genre_id: 4)
+
 
 
 file = open('https://newflix-aa-seeds.s3-us-west-1.amazonaws.com/juice.jpg')
@@ -240,7 +285,10 @@ rating: 4.8,
 year: 2010, 
 description: 'Dr. Rick Strassman conducts groundbreaking research on the hallucinogen DMT.')
 
+# MovieGenre.create(movie_id: spirit.id, genre_id: documentary.id)
+
 MovieGenre.create(movie_id: spirit.id, genre_id: 3)
+
 
 
 file = open('https://newflix-aa-seeds.s3-us-west-1.amazonaws.com/spiritmolecule.jpg')

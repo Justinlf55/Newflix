@@ -13,6 +13,6 @@ class Api::MoviesController < ApplicationController
 
     private
     def movie_search_params
-        params.require(:movie).permit(:title)
+        params.require(:movie).permit(:title,:image,:video)
     end
 end

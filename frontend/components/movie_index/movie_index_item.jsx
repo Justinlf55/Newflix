@@ -4,8 +4,12 @@ import { Link } from 'react-router-dom'
 class MovieIndexItem extends React.Component {
     constructor(props) {
         super(props);
-
+        this.state = {
+            hover: false,
+        }
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.onMouseEnterHandler = this.onMouseEnterHandler.bind(this);
+        this.onMouseLeaveHandler = this.onMouseLeaveHandler.bind(this);
     }
 
     handleSubmit(e) {
@@ -14,13 +18,53 @@ class MovieIndexItem extends React.Component {
         this.props.addToWatchlist(movie);
     }
 
+    onMouseEnterHandler() {
+        this.setState({
+            hover:true,
+        });
+
+        setTimeout(() => { const video = document.getElementById('thumbnail-video');
+        if (video !== null) video.play()}, 500);
+
+        console.log('enter')
+    }
+
+    onMouseLeaveHandler(e) {
+        this.setState({
+            hover:false,
+        });
+        console.log('leave')
+    }
+
     render() {
         const { movie } = this.props
+
+        let display;
+        if (this.state.hover) {
+            display = <video 
+                id='thumbnail-video' 
+                className='movie-index-item'
+                src={movie.videoUrl}
+                autoplay muted>
+                </video>
+        }else{
+            display = <img id='thumbnail-img' 
+            className='movie-index-item' 
+            src={movie.photoUrl} alt="Space Jam"/>
+        }
 
         return (
 
             <div>
-                <Link id="thumbnail" to={`/movies/${movie.id}`}><img className='movie-index-item' src={movie.photoUrl} alt="Space Jam"/></Link>
+                <Link 
+                    id="thumbnail" 
+                    to={`/movies/${movie.id}`}
+                    onMouseEnter = {this.onMouseEnterHandler}
+                    onMouseLeave={this.onMouseLeaveHandler}>
+                    {display}
+                    {/* <img id='thumbnail-img' className='movie-index-item thumbnail-display' src={movie.photoUrl} alt="Space Jam"/>
+                    <video id='thumbnail-video' className='movie-index-item thumbnail-stop'src={movie.videoUrl}></video> */}
+                </Link>
                 <form onSubmit={this.handleSubmit}>
                     <input type="hidden" value={movie.id}/>
                     <button className='watchlist-btn'><i className="fas fa-plus"></i></button>

@@ -12,11 +12,11 @@ Movie.destroy_all
 MovieGenre.destroy_all
 Watchlist.destroy_all 
 User.destroy_all
-Genre.destroy_all
+# Genre.destroy_all
 
 # ------------------------------------------------------------------------------------
 
-User.create(email: 'demo@gmail.com', password:'123456')
+# User.create(email: 'demo@gmail.com', password:'123456')
 
 #-------------------------------------------------------------------------------------
 

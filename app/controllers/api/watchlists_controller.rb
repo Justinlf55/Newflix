@@ -18,7 +18,6 @@ class Api::WatchlistsController < ApplicationController
 
     private 
     def watchlist_params
-        p params
         params.require(:movie).permit(:movie_id)
     end
 end

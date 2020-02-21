@@ -2,6 +2,8 @@ import React from 'react';
 import NavBarContainer from '../navbar/navbar_container';
 import MovieIndexItem from './movie_index_item';
 import { Link } from 'react-router-dom';
+import GenreCarouselContainer from '../genre_carousel/genre_carousel_container';
+
 
 class MovieIndex extends React.Component {
     constructor(props) {
@@ -9,12 +11,15 @@ class MovieIndex extends React.Component {
         this.state = {
             sound: false,
         }
-
         // this.unmute = this.unmute.bind(this);
     }
 
     componentDidMount() {
         this.props.fetchMovies();
+        this.props.fetchGenres();
+        // for (let i = 1; i < 9; i++) {
+        //     this.props.fetchGenre(i);
+        // }
         const video = document.getElementById('back-video');
         video.play();
     }
@@ -28,10 +33,17 @@ class MovieIndex extends React.Component {
 
 
     render() {   
+
+        // console.log(this.props);
+        
         if (!this.props.movies[0]) this.props.movies[0] = '';
 
         const { movies, addToWatchlist } = this.props;
 
+        if (!this.props.genres[0]) this.props.genres[0] = '';
+
+        const { genres } = this.props;
+ 
         return (
             <div>
                 <div className='navdiv'>
@@ -78,16 +90,19 @@ class MovieIndex extends React.Component {
                     loop
                 />
                 <div className='movie-index'>
-                    {
-                        movies.map(movie => (
-                            <MovieIndexItem
-                                movie={movie}
-                                addToWatchlist={addToWatchlist}
-                                key={`${movie.id}`}
-                            />
-                        ))
-                    }
-                </div>                
+                    <div className='row'>
+                        {
+                            movies.map(movie => (
+                                <MovieIndexItem
+                                    movie={movie}
+                                    addToWatchlist={addToWatchlist}
+                                    key={`${movie.id}`}
+                                />
+                            ))
+                        }
+                    </div>
+                </div>
+                <GenreCarouselContainer />                
             </div>
         )
     }

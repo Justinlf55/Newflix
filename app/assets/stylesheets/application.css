@@ -393,8 +393,10 @@ input[type="checkbox"]:checked, input[type="radio"]:checked {
     z-index: 2;
 }
 
+/* -------------------Movie Index------------------------------------------- */
+
 .movie-index {
-    margin-top: -200px;
+    /* margin-top: -200px;
     margin-left: 55px;
     display: flex;
     flex-direction: row;
@@ -402,7 +404,17 @@ input[type="checkbox"]:checked, input[type="radio"]:checked {
     scrollbar-width: none;
     transition: transform 450ms;
     position: relative;
-    flex-wrap: wrap;
+    flex-wrap: wrap; */
+    overflow: scroll;
+    width: 100%;
+}
+
+.row {
+    transition: 450ms transform;
+    font-size: 0;
+    white-space: nowrap;
+    margin: (140.6px / 2) 0
+    padding-bottom: 10px // Account for OS X scroll bar
 }
 
 .genre-movie-index {
@@ -417,7 +429,7 @@ input[type="checkbox"]:checked, input[type="radio"]:checked {
 }
 
 .movie-index-item {
-    height: 164.72px;
+    /* height: 164.72px;
     width: 292.6px;
     transition: all .5s ease-in-out;
     transition-delay: 0.2s;
@@ -425,11 +437,75 @@ input[type="checkbox"]:checked, input[type="radio"]:checked {
     margin-right: 4px;
     margin-bottom: 40px;
     border: #141414 1.4px solid;
-    z-index: 2;
-    /* margin-top: -60px; */
-    /* position: absolute; */
-    /* z-index: 4; */
+    z-index: 2; */
+    position: relative;
+    display: inline-block;
+    width: 250px;
+    height: 140.6px;
+    margin-right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 450ms all;
+    transform-origin: center left;
 }
+
+.movie-thumbnail {
+    width: 250px;
+    height: 140.6px;
+    object-fit: cover;
+}
+
+/* .movie-details {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    font-size: 10px;
+    opacity: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 100%);
+    transition: 450ms opacity;
+
+    &:after
+    &:before
+      content: '';
+      position absolute;
+      top: 50%;
+      left: 50%;
+      display: black;
+  
+    &:after
+      margin-top: (-($iconSize / 2));
+      margin-left: (-($iconSize / 2));
+      width: $iconSize;
+      height: $iconSize;
+      border: 3px solid #ecf0f1;
+      line-height: $iconSize;
+      text-align: center;
+      border-radius: 100%;
+      background: rgba(0,0,0,0.5);
+      z-index: 1;
+  
+    &:before
+      content: '▶'
+      left: 0
+      width: 100%
+      font-size: 30px
+      margin-left: 7px
+      margin-top: -18px
+      text-align: center
+      z-index: 2
+  
+    .tile:hover &
+      opacity: 1
+  
+  .tile__title
+    position absolute
+    bottom: 0
+    padding: 10px
+  
+} */
+
 
 .movie-index-item:hover {
     /* height: 178.92px;
@@ -597,3 +673,8 @@ input[type="checkbox"]:checked, input[type="radio"]:checked {
 
  /* ----------------------------------------------------- */
  
+ /* .test {
+     z-index: 10;
+     color: yellow;
+     position: absolute;
+ } */

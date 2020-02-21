@@ -8,7 +8,6 @@ class GenreShow extends React.Component {
     }
 
     render() {
-
         if (!this.props.genre) {
             return null;
         }
@@ -18,7 +17,7 @@ class GenreShow extends React.Component {
         }
 
         const { movies } = this.props.genre
-
+        console.log(this.props);
         return (
             <div>
                 <div className='navdiv'>

@@ -29,7 +29,7 @@ class MovieIndexItem extends React.Component {
         console.log('enter')
     }
 
-    onMouseLeaveHandler(e) {
+    onMouseLeaveHandler() {
         this.setState({
             hover:false,
         });
@@ -43,19 +43,19 @@ class MovieIndexItem extends React.Component {
         if (this.state.hover) {
             display = <video 
                 id='thumbnail-video' 
-                className='movie-index-item'
+                className='movie-thumbnail'
                 src={movie.videoUrl}
-                autoplay muted>
+                autoPlay muted>
                 </video>
         }else{
             display = <img id='thumbnail-img' 
-            className='movie-index-item' 
+            className='movie-thumbnail' 
             src={movie.photoUrl} alt="Space Jam"/>
         }
 
         return (
 
-            <div>
+            <div className='movie-index-item'>
                 <Link 
                     id="thumbnail" 
                     to={`/movies/${movie.id}`}
@@ -65,6 +65,11 @@ class MovieIndexItem extends React.Component {
                     {/* <img id='thumbnail-img' className='movie-index-item thumbnail-display' src={movie.photoUrl} alt="Space Jam"/>
                     <video id='thumbnail-video' className='movie-index-item thumbnail-stop'src={movie.videoUrl}></video> */}
                 </Link>
+                {/* <div className='movie-details'>
+                    <div className='movie-title'>
+                        {movie.title}
+                    </div>
+                </div> */}
                 <form onSubmit={this.handleSubmit}>
                     <input type="hidden" value={movie.id}/>
                     <button className='watchlist-btn'><i className="fas fa-plus"></i></button>

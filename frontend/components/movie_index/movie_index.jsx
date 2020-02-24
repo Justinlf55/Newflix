@@ -52,7 +52,7 @@ class MovieIndex extends React.Component {
                 <div className="title-div">
                     <h1 className='page-title'>Movies</h1>
                     <div className="genre-dropdown">
-                        <button className="genre-dropbtn">Genres 
+                        <button className="genre-dropbtn">Genres   
                             <i className="fa fa-caret-down"></i>
                         </button>
                         <div className="genre-dropdown-content">
@@ -101,8 +101,7 @@ class MovieIndex extends React.Component {
                             ))
                         }
                     </div>
-                </div>
-                <GenreCarouselContainer />                
+                </div>               
             </div>
         )
     }

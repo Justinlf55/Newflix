@@ -11,7 +11,7 @@ Newflix is a Netflix Clone which allows for users to watch and stream movie trai
 **Features**
 
 + Frontend and backend user authentification. Sign up, sign in, and sign out supported through the use of session tokens and bootstrapping. 
-![Sign In](https://res.cloudinary.com/justinlf55/image/upload/v1582525934/Newflix/Screen_Shot_2020-02-23_at_10.30.31_PM_n8iptg.png)
+[<img src="https://res.cloudinary.com/justinlf55/image/upload/v1582525934/Newflix/Screen_Shot_2020-02-23_at_10.30.31_PM_n8iptg.png">](http://google.com.au/)
 + There is a demo sign in feature if a user does not have time to sign up. 
 + Genre pages are implemented and are accessed through a dropdown menu on the movies index page.  Each genre page contains only movies associated with that specified genre.  
 + A watchlist allows users to add and remove movies from their watchlist. 

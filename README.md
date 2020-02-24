@@ -1,6 +1,7 @@
 # README
 
 **Implemented Technologies**
+
 Ruby on Rails, Javascript, React.JS, Redux.JS, PostgreSQL, Amazon AWS
 
 **Overview**

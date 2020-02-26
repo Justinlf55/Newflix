@@ -7,7 +7,7 @@ Newflix is a Netflix Clone allows for users to watch and stream movie trailers o
 
 **Technologies Implemented**
 
-*Ruby on Rails 
+* Ruby on Rails 
 * Javascript
 * React.js/Redux.js 
 * PostgreSQL
@@ -15,7 +15,7 @@ Newflix is a Netflix Clone allows for users to watch and stream movie trailers o
 
 **Features**
 
-+ Frontend and backend user authentification. Sign up, sign in, and sign out supported through the use of session tokens and bootstrapping. 
+Frontend and backend user authentification. Sign up, sign in, and sign out supported through the use of session tokens and bootstrapping. 
 ![Sign In](https://github.com/Justinlf55/Newflix/blob/master/app/assets/images/Screen%20Shot%202020-02-24%20at%201.33.39%20AM.png?raw=true)
 + There is a demo sign in feature if a user does not have time to sign up. 
 ```
@@ -66,10 +66,14 @@ Newflix is a Netflix Clone allows for users to watch and stream movie trailers o
     }, intervalSpeed);
   }
  ```
-+ Genre pages are implemented and are accessed through a dropdown menu on the movies index page.  Each genre page contains only movies associated with that specified genre.  
+
+
+Genre pages are implemented and are accessed through a dropdown menu on the movies index page.  Each genre page contains only movies associated with that specified genre.  
 ![Demo Dropdown](https://github.com/Justinlf55/Newflix/blob/master/app/assets/images/GenreDrpDwnScreenShot.png?raw=true)
 ![Genre Show Page](https://github.com/Justinlf55/Newflix/blob/master/app/assets/images/GenreExampleScreenshot.png?raw=true)
-+ A watchlist allows users to add and remove movies from their watchlist using react forms to send information to save in the backend. 
+
+
+A watchlist allows users to add and remove movies from their watchlist using react forms to send information to save in the backend. 
 ```
     handleSubmit(e) {
         e.preventDefault();
@@ -83,7 +87,9 @@ Newflix is a Netflix Clone allows for users to watch and stream movie trailers o
         <button className='watchlist-btn'><i className="fas fa-plus"></i></button>
     </form>
 ```
-+ Movie thumbnails are hoverable and play a muted trailer once hovered over
+
+
+Movie thumbnails are hoverable and play a muted trailer once hovered over
 ```
     onMouseEnterHandler() {
         this.setState({
@@ -119,7 +125,9 @@ Newflix is a Netflix Clone allows for users to watch and stream movie trailers o
             src={movie.photoUrl} alt="Space Jam"/>
         }
   ```
-+ When a movie thumbnail is clicked, user is redirected to show page, which plays the trailer for the clicked movie
+
+
+When a movie thumbnail is clicked, user is redirected to show page, which plays the trailer for the clicked movie
 
 **Future Features**
 

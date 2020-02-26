@@ -101,7 +101,8 @@ class MovieIndex extends React.Component {
                             ))
                         }
                     </div>
-                </div>               
+                </div>
+                <GenreCarouselContainer />                
             </div>
         )
     }

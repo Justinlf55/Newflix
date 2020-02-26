@@ -6,6 +6,7 @@ Newflix is a Netflix Clone allows for users to watch and stream movie trailers o
 
 
 **Technologies Implemented**
+
 *Ruby on Rails 
 * Javascript
 * React.js/Redux.js 

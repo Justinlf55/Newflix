@@ -25,17 +25,14 @@ class MovieIndexItem extends React.Component {
 
         setTimeout(() => { const video = document.getElementById('thumbnail-video');
         if (video !== null) video.play()}, 500);
-
-        console.log('enter')
     }
 
     onMouseLeaveHandler() {
         this.setState({
             hover:false,
         });
-        console.log('leave')
     }
-
+4
     render() {
         const { movie } = this.props
 

@@ -117,6 +117,6 @@ Newflix is a Netflix Clone allows for users to watch and stream movie trailers o
 
 **Future Features**
 
-+ Search Bar, which will allow for searching through movies character by character. 
-+ Improved designs and stylings
++ Search Bar, which will allow for searching to search by movie. 
++ Improved carousel to scroll left and right when browsing on index page or genre pages
 

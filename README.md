@@ -1,11 +1,16 @@
-# README
-
-**Technologies Implemented**
-Ruby on Rails, Javascript, React.js/Redux.js, PostgreSQL, Amazon AWS
+# Newflix
 
 **Overview**
 
 Newflix is a Netflix Clone allows for users to watch and stream movie trailers once registered and signed in.  The backend database is developed on PostgreSQL, the backend is developed through Ruby on Rails, and the frontend is developed using React/Redux. Cloud storage for images and videos is supported through Amazon AWS S3. 
+
+
+**Technologies Implemented**
+*Ruby on Rails 
+* Javascript
+* React.js/Redux.js 
+* PostgreSQL
+* Amazon AWS
 
 **Features**
 

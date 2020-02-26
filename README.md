@@ -61,7 +61,22 @@ Newflix is a Netflix Clone allows for users to watch and stream movie trailers o
   }
  ```
 + Genre pages are implemented and are accessed through a dropdown menu on the movies index page.  Each genre page contains only movies associated with that specified genre.  
+![Demo Dropdown](https://github.com/Justinlf55/Newflix/blob/master/app/assets/images/GenreDrpDwnScreenShot.png?raw=true)
+![Genre Show Page](https://github.com/Justinlf55/Newflix/blob/master/app/assets/images/GenreExampleScreenshot.png?raw=true)
 + A watchlist allows users to add and remove movies from their watchlist using react forms to send information to save in the backend. 
+```
+    handleSubmit(e) {
+        e.preventDefault();
+        const movie = Object.assign({}, {movie_id: this.props.movie.id});
+        this.props.addToWatchlist(movie);
+    }
+```
+```
+    <form onSubmit={this.handleSubmit}>
+        <input type="hidden" value={movie.id}/>
+        <button className='watchlist-btn'><i className="fas fa-plus"></i></button>
+    </form>
+```
 + Movie thumbnails are hoverable and play a muted trailer once hovered over
 + When a movie thumbnail is clicked, user is redirected to show page, which plays the trailer for the clicked movie
 

@@ -78,6 +78,41 @@ Newflix is a Netflix Clone allows for users to watch and stream movie trailers o
     </form>
 ```
 + Movie thumbnails are hoverable and play a muted trailer once hovered over
+```
+    onMouseEnterHandler() {
+        this.setState({
+            hover:true,
+        });
+
+        setTimeout(() => { const video = document.getElementById('thumbnail-video');
+        if (video !== null) video.play()}, 500);
+    }
+
+    onMouseLeaveHandler() {
+        this.setState({
+            hover:false,
+        });
+    }
+```
+
+```
+    render() {
+        const { movie } = this.props
+
+        let display;
+        if (this.state.hover) {
+            display = <video 
+                id='thumbnail-video' 
+                className='movie-thumbnail'
+                src={movie.videoUrl}
+                autoPlay muted>
+                </video>
+        }else{
+            display = <img id='thumbnail-img' 
+            className='movie-thumbnail' 
+            src={movie.photoUrl} alt="Space Jam"/>
+        }
+  ```
 + When a movie thumbnail is clicked, user is redirected to show page, which plays the trailer for the clicked movie
 
 **Future Features**

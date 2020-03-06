@@ -2,6 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 class NavBar extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            toggle: false,
+        }
+    }
+    
     render() {
         let { currentUser, logout } = this.props;
 

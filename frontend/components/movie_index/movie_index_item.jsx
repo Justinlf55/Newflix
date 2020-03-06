@@ -32,7 +32,7 @@ class MovieIndexItem extends React.Component {
             hover:false,
         });
     }
-4
+
     render() {
         const { movie } = this.props
 

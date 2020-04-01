@@ -7,6 +7,7 @@ class MovieIndexItem extends React.Component {
         this.state = {
             hover: false,
         }
+        
         this.handleSubmit = this.handleSubmit.bind(this);
         this.onMouseEnterHandler = this.onMouseEnterHandler.bind(this);
         this.onMouseLeaveHandler = this.onMouseLeaveHandler.bind(this);
@@ -20,7 +21,7 @@ class MovieIndexItem extends React.Component {
 
     onMouseEnterHandler() {
         this.setState({
-            hover:true,
+            hover: true,
         });
 
         setTimeout(() => { const video = document.getElementById('thumbnail-video');

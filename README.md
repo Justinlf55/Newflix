@@ -155,4 +155,3 @@ When a movie thumbnail is clicked, user is redirected to show page, which plays 
 + Improved carousel to scroll left and right when browsing on index page or genre pages
 + Sub-genres to fill out Genre show pages
 
-

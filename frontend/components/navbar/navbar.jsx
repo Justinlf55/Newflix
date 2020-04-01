@@ -7,10 +7,29 @@ class NavBar extends React.Component {
         this.state = {
             toggle: false,
         }
+
+        this.toggle = this.toggle.bind(this);
     }
+
+    toggle() {
+        this.setState({
+            toggle: !this.state.toggle,
+        });
+
+        console.log(this.state.toggle);
+    }
+
+
     
     render() {
         let { currentUser, logout } = this.props;
+
+        let searchBar;
+        if (this.state.toggle) {
+            searchBar = <input type="text" placeholder="Movies, Genres" />
+        } else {
+            searchBar = ''
+        }
 
         return (
             <div className='full-nav'>
@@ -29,8 +48,8 @@ class NavBar extends React.Component {
                         <li>
                             <div className="search-wrapper">
                                 <div className='searchbar'>
-                                    <input type="text" placeholder="Movies, Genres" />
-                                    <div className='search-icon'>
+                                    {searchBar}
+                                    <div className='search-icon' onClick = {this.toggle}>
                                         <i className="fas fa-search"></i>
                                     </div>
                                 </div>

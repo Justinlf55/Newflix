@@ -350,7 +350,6 @@ input[type="checkbox"]:checked, input[type="radio"]:checked {
 }
 
 .search-wrapper .searchbar input[type="text"]{
-    display: none;
     border: 0;
     padding: 0 10px;
     width: 250px;
@@ -359,6 +358,10 @@ input[type="checkbox"]:checked, input[type="radio"]:checked {
     background: #141414;
     border: 1px white solid;
     color: white;
+}
+
+.search-icon:hover {
+    cursor: pointer;
 }
 
 

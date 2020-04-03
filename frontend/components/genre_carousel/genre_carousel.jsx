@@ -20,7 +20,7 @@ class GenreCarousel extends React.Component {
         const { genres } = this.props;
 
         return (
-            <h1>Carousel</h1>
+            <h1>CAROUSEL</h1>
         );
     }
 }

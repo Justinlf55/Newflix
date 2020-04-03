@@ -15,8 +15,6 @@ class NavBar extends React.Component {
         this.setState({
             toggle: !this.state.toggle,
         });
-
-        console.log(this.state.toggle);
     }
 
 

@@ -350,6 +350,7 @@ input[type="checkbox"]:checked, input[type="radio"]:checked {
 }
 
 .search-wrapper .searchbar input[type="text"]{
+    position: relative;
     border: 0;
     padding: 0 10px;
     width: 250px;
@@ -453,6 +454,7 @@ input[type="checkbox"]:checked, input[type="radio"]:checked {
 }
 
 .movie-thumbnail {
+    position: relative;
     width: 250px;
     height: 140.6px;
     object-fit: cover;
@@ -514,7 +516,7 @@ input[type="checkbox"]:checked, input[type="radio"]:checked {
     /* height: 178.92px;
     width: 318.20px; */
     transform: scale(1.8);
-    z-index: 2;
+    z-index: 5;
 }
 
 .movie-genre {
@@ -662,12 +664,15 @@ input[type="checkbox"]:checked, input[type="radio"]:checked {
  }
 
  .watchlist-btn {
-    border: #e50914 1px solid;
+    border: transparent;
     border-radius: 20px;
     margin-top: -55px;
-    background: #e50914;
+    margin-left: 80%;
+    background: transparent;
     color: white;
     position: absolute;
+    z-index: 5;
+    font-size: larger;
  }
 
  .watchlist-btn:hover {

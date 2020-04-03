@@ -12,9 +12,9 @@ class GenreShow extends React.Component {
             return null;
         }
 
-        // if (!this.props.genre.movies[0]) {
-        //     return null;
-        // }
+        if (!this.props.genre.movies[0]) {
+            return null;
+        }
 
         const { movies } = this.props.genre
         console.log(this.props);

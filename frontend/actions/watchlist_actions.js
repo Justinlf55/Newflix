@@ -14,3 +14,7 @@ export const fetchWatchlist = () => dispatch => (
 export const addToWatchlist = movie => dispatch => (
     WatchlistAPIUtil.addToWatchlist(movie).then(addedMovie => dispatch(receiveWatchlist(addedMovie)))
 )
+
+export const removeFromWatchlist = id => dispatch => (
+    WatchlistAPIUtil.removeFromWatchlist(id).then(() => dispatch(receiveWatchlist(id)))
+)

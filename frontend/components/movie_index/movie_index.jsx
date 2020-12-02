@@ -33,16 +33,14 @@ class MovieIndex extends React.Component {
 
 
     render() {   
-
+        // console.log('props');
         // console.log(this.props);
         
         if (!this.props.movies[0]) this.props.movies[0] = '';
 
-        const { movies, addToWatchlist } = this.props;
-
+        const { movies, addToWatchlist, removeFromWatchlist, genres } = this.props;
+        console.log("hitting here", removeFromWatchlist, addToWatchlist);
         if (!this.props.genres[0]) this.props.genres[0] = '';
-
-        const { genres } = this.props;
  
         return (
             <div>
@@ -96,6 +94,7 @@ class MovieIndex extends React.Component {
                                 <MovieIndexItem
                                     movie={movie}
                                     addToWatchlist={addToWatchlist}
+                                    removeFromWatchlist={removeFromWatchlist}
                                     key={`${movie.id}`}
                                 />
                             ))

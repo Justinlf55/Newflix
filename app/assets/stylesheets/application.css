@@ -652,6 +652,8 @@ input[type="checkbox"]:checked, input[type="radio"]:checked {
      font-size: larger;
  }
 
+ /* ---------------------------Watchlist----------------------------------------------- */
+
  .watchlist {
     margin-left: 55px;
     display: flex;
@@ -663,20 +665,61 @@ input[type="checkbox"]:checked, input[type="radio"]:checked {
     position: relative;
  }
 
+ .watchlist-btn-div {
+     display: flex;
+     flex-direction: row;
+ }
+
  .watchlist-btn {
     border: transparent;
-    border-radius: 20px;
+    /* border-radius: 20px; */
     margin-top: -55px;
-    margin-left: 80%;
+    /* margin-left: 80%; */
     background: transparent;
     color: white;
-    position: absolute;
+    position: relative;
     z-index: 5;
     font-size: larger;
  }
 
  .watchlist-btn:hover {
     cursor: pointer;
+ }
+ 
+ /* --------------------Search Bar--------------------------------- */
+ .searchbar {
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: right;
+     width: 50%;
+ }
+ #search-result {
+     border: red 1px solid;
+     font-family: Helvetica, Arial, sans-serif;
+     background-color: #141414;
+     display: flex;
+     flex-direction: column;
+     z-index: 10;
+     margin: 0;
+     width: 40%;
+ }
+
+ #search-result > * {
+    text-align: center;
+    width: 100%;
+    margin-right: 20%;
+ }
+
+ #search-result:hover {
+     cursor: pointer;
+     background-color: darkgray;
+ }
+
+ .search-thumbnail {
+     width: 15%;
+     height: 25%;
+     margin-right: 0;
  }
 
  /* ----------------------------------------------------- */

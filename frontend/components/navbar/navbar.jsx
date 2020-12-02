@@ -6,9 +6,16 @@ class NavBar extends React.Component {
         super(props);
         this.state = {
             toggle: false,
+            input: '',
+            filtered: [],
         }
 
         this.toggle = this.toggle.bind(this);
+        this.filterMovies = this.filterMovies.bind(this);
+    }
+
+    componentDidMount() {
+        this.props.fetchMovies();
     }
 
     toggle() {
@@ -17,14 +24,37 @@ class NavBar extends React.Component {
         });
     }
 
+    filterMovies(e) {
+        let movies = Object.values(this.props.movies);
+        let genres = Object.values(this.props.genres);
+        
+        e.preventDefault();
+        this.setState({
+            input: e.target.value
+        })
+
+
+        movies = movies.filter(movie => {
+            return movie.title.toLowerCase().includes(this.state.input)
+        })
+
+        this.setState({
+            filtered: movies,
+        })
+    };
+
 
     
     render() {
         let { currentUser, logout } = this.props;
 
+        if (!this.props.movies[0]) this.props.movies[0] = '';
+
+        const { movies } = this.props;
+
         let searchBar;
         if (this.state.toggle) {
-            searchBar = <input type="text" placeholder="Movies, Genres" />
+            searchBar = <input id='nav-search' type="text" placeholder="Movies, Genres" value={this.state.input} onChange={this.filterMovies} />
         } else {
             searchBar = ''
         }
@@ -47,6 +77,17 @@ class NavBar extends React.Component {
                             <div className="search-wrapper">
                                 <div className='searchbar'>
                                     {searchBar}
+                                    {
+                                        this.state.filtered.map(movie => (
+                                                <li id="search-result">
+                                                    <Link
+                                                        to={`/movies/${movie.id}`}
+                                                    >
+                                                    <img className="search-thumbnail" src={movie.photoUrl} />{movie.title}
+                                                    </Link>
+                                                </li>
+                                        ))
+                                    }
                                     <div className='search-icon' onClick = {this.toggle}>
                                         <i className="fas fa-search"></i>
                                     </div>

@@ -7,8 +7,9 @@ class User < ApplicationRecord
 
     has_one :watchlist
     has_many :watchlist_movies,
-    through: :watchlist,
-    source: :movie
+    primary_key: :id,
+    foreign_key: :user_id,
+    class_name: :Watchlist
 
 
     before_validation :ensure_session_token 

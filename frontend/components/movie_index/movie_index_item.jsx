@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
+import { addToWatchlist } from '../../util/watchlist_api_util';
 
 class MovieIndexItem extends React.Component {
     constructor(props) {
@@ -8,15 +9,24 @@ class MovieIndexItem extends React.Component {
             hover: false,
         }
 
-        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleAdd = this.handleAdd.bind(this);
+        this.handleRemove = this.handleRemove.bind(this);
         this.onMouseEnterHandler = this.onMouseEnterHandler.bind(this);
         this.onMouseLeaveHandler = this.onMouseLeaveHandler.bind(this);
     }
 
-    handleSubmit(e) {
+    handleAdd(e) {
+        console.log('hitting here');
         e.preventDefault();
         const movie = Object.assign({}, {movie_id: this.props.movie.id});
         this.props.addToWatchlist(movie);
+    }
+
+    handleRemove(e) {
+        e.preventDefault();
+        const movie = Object.assign({}, {movie_id: this.props.movie.id});
+        this.props.removeFromWatchlist(movie.movie_id);
+        // console.log(movie.movie_id);
     }
 
     onMouseEnterHandler() {
@@ -35,10 +45,13 @@ class MovieIndexItem extends React.Component {
     }
 
     render() {
+        // console.log('props');
+        // console.log(this.props);
         const { movie } = this.props
 
         let display;
         let watchlistBtn;
+        let watchlistRemove;
         if (this.state.hover) {
             display = <video 
                 id='thumbnail-video' 
@@ -47,24 +60,46 @@ class MovieIndexItem extends React.Component {
                 autoPlay muted>
                 </video>
 
-            watchlistBtn = <button 
-                className = 'watchlist-btn'
-                onMouseEnter = {this.onMouseEnterHandler}
-                onMouseLeave = {this.onMouseLeaveHandler}
-                >
-                <i className='fas fa-plus-circle' ></i>
-                </button>
+            watchlistBtn = 
+                    <button 
+                        className = 'watchlist-btn'
+                        title='Add to Watchlist'
+                        onMouseEnter = {this.onMouseEnterHandler}
+                        onMouseLeave = {this.onMouseLeaveHandler}
+                        >
+                        <i className='fas fa-plus-circle' ></i>
+                    </button>
+            
+            watchlistRemove =
+                    <button 
+                        className = 'watchlist-btn'
+                        title='Remove from Watchlist'
+                        onMouseEnter = {this.onMouseEnterHandler}
+                        onMouseLeave = {this.onMouseLeaveHandler}
+                        >
+                        <i class="fas fa-minus-circle"></i>
+                    </button>
         }else{
             display = <img id='thumbnail-img' 
             className='movie-thumbnail' 
             src={movie.photoUrl} alt="Space Jam"/>
 
             watchlistBtn = '';
+
+            watchlistRemove = '';
         }
 
         return (
 
             <div className='movie-index-item'>
+                                <form onSubmit={this.handleAdd}>
+                    <input type="hidden" value={movie.id}/>
+                    {watchlistBtn}
+                </form>
+                <form onSubmit={this.handleRemove}>
+                    <input type="hidden" value={movie.id}/>
+                    {watchlistRemove}
+                </form>
                 <Link 
                     id="thumbnail" 
                     to={`/movies/${movie.id}`}
@@ -79,10 +114,14 @@ class MovieIndexItem extends React.Component {
                         {movie.title}
                     </div>
                 </div> */}
-                <form onSubmit={this.handleSubmit}>
+                {/* <form onSubmit={this.handleAdd}>
                     <input type="hidden" value={movie.id}/>
                     {watchlistBtn}
                 </form>
+                <form onSubmit={this.handleRemove}>
+                    <input type="hidden" value={movie.id}/>
+                    {watchlistRemove}
+                </form> */}
             </div>
         )
     }

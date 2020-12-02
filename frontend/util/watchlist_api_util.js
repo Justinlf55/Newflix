@@ -13,3 +13,10 @@ export const addToWatchlist = movie => (
     data: { movie }
   })
 );
+
+export const removeFromWatchlist = id => (
+  $.ajax({
+    method: 'DELETE',
+    url: `/api/watchlists/${id}`,
+  })
+)

@@ -18,7 +18,7 @@ class Watchlist extends React.Component {
         }
 
 
-        let { watchlist, movies } = this.props;
+        let { watchlist, movies, removeFromWatchlist } = this.props;
         
         watchlist = watchlist.map(list => list.movieId)
 
@@ -40,6 +40,7 @@ class Watchlist extends React.Component {
                         <MovieIndexItem 
                         movie={movies[movieId]}
                         key={movieId}
+                        removeFromWatchlist={removeFromWatchlist}
                     />                       
                     ))
                 }     

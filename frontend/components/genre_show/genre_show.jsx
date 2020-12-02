@@ -17,14 +17,15 @@ class GenreShow extends React.Component {
         }
 
         const { movies } = this.props.genre
-        console.log(this.props);
+        const { addToWatchlist, removeFromWatchlist } = this.props
+        
         return (
             <div>
                 <div className='navdiv'>
                     <NavBarContainer />
                 </div>
                 <div className="movie-genre-div">
-                    <h4 className='movie-genre'>Movies  ></h4>
+                    <h4 className='movie-genre'>Movies</h4>
                     <h1 className='genre-name'>{this.props.genre.name}</h1>
                 </div>
                 <div className='genre-movie-index'>
@@ -33,6 +34,8 @@ class GenreShow extends React.Component {
                             <MovieIndexItem
                                 movie={movie}
                                 key={movie.id}
+                                addToWatchlist={addToWatchlist}
+                                removeFromWatchlist={removeFromWatchlist}
                             />
                         ))
                     }

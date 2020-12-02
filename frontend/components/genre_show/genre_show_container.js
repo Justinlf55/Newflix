@@ -2,7 +2,9 @@ import { connect } from 'react-redux';
 
 import { fetchGenre } from '../../actions/genre_actions';
 import { selectGenre } from '../../reducers/selectors';
+import { addToWatchlist, removeFromWatchlist } from '../../actions/watchlist_actions';
 import GenreShow from './genre_show';
+import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = (state, ownProps) => {
   const genreId = ownProps.match.params.genreId;
@@ -14,7 +16,9 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  fetchGenre: id => dispatch(fetchGenre(id))
+  fetchGenre: id => dispatch(fetchGenre(id)),
+  addToWatchlist: movie => dispatch(addToWatchlist(movie)),
+  removeFromWatchlist: id => dispatch(removeFromWatchlist(id))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(GenreShow);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(GenreShow));

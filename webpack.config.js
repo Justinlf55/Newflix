@@ -24,5 +24,4 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx', '*']
   },
-  warnings: true
 };

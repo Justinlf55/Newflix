@@ -33,8 +33,8 @@ class SessionForm extends React.Component {
   handleDemoSubmit(e) {
     e.preventDefault();
     const user = Object.assign({},{
-      email: 'demo@gmail.com',
-      password: '123456'
+      email: 'demo_user@gmail.com',
+      password: 'demo_password'
     })
     this.demo(user)
   }

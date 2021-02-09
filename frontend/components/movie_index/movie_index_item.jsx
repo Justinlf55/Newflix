@@ -7,6 +7,7 @@ class MovieIndexItem extends React.Component {
         super(props);
         this.state = {
             hover: false,
+            delete: false,
         }
 
         this.handleAdd = this.handleAdd.bind(this);
@@ -26,7 +27,11 @@ class MovieIndexItem extends React.Component {
         e.preventDefault();
         const movie = Object.assign({}, {movie_id: this.props.movie.id});
         this.props.removeFromWatchlist(movie.movie_id);
-        // console.log(movie.movie_id);
+        this.setState({
+            delete: !this.state.delete,
+        })
+
+        console.log(this.state.delete);
     }
 
     onMouseEnterHandler() {
@@ -92,14 +97,16 @@ class MovieIndexItem extends React.Component {
         return (
 
             <div className='movie-index-item'>
-                                <form onSubmit={this.handleAdd}>
-                    <input type="hidden" value={movie.id}/>
-                    {watchlistBtn}
-                </form>
-                <form onSubmit={this.handleRemove}>
-                    <input type="hidden" value={movie.id}/>
-                    {watchlistRemove}
-                </form>
+                <div className='watchlist-btn-div'>
+                    <form onSubmit={this.handleAdd}>
+                        <input type="hidden" value={movie.id}/>
+                        {watchlistBtn}
+                    </form>
+                    <form onSubmit={this.handleRemove}>
+                        <input type="hidden" value={movie.id}/>
+                        {watchlistRemove}
+                    </form>
+                </div>
                 <Link 
                     id="thumbnail" 
                     to={`/movies/${movie.id}`}

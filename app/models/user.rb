@@ -6,7 +6,7 @@ class User < ApplicationRecord
     validates :password, length: { minimum: 6 }, allow_nil: true
 
     has_one :watchlist
-    has_many :watchlist_movies,
+    has_many :watchlist_movies, 
     primary_key: :id,
     foreign_key: :user_id,
     class_name: :Watchlist

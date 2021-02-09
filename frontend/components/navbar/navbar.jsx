@@ -28,14 +28,8 @@ class NavBar extends React.Component {
         let movies = Object.values(this.props.movies);
         let genres = Object.values(this.props.genres);
         
-        e.preventDefault();
-        this.setState({
-            input: e.target.value
-        })
-
-
         movies = movies.filter(movie => {
-            return movie.title.toLowerCase().includes(this.state.input)
+            return movie.title.toLowerCase().includes(e.target.value);
         })
 
         this.setState({
@@ -54,7 +48,7 @@ class NavBar extends React.Component {
 
         let searchBar;
         if (this.state.toggle) {
-            searchBar = <input id='nav-search' type="text" placeholder="Movies, Genres" value={this.state.input} onChange={this.filterMovies} />
+            searchBar = <input id='nav-search' type="text" placeholder="Movies, Genres" onChange={this.filterMovies} />
         } else {
             searchBar = ''
         }

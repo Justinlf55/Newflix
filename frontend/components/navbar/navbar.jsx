@@ -71,17 +71,20 @@ class NavBar extends React.Component {
                             <div className="search-wrapper">
                                 <div className='searchbar'>
                                     {searchBar}
-                                    {
-                                        this.state.filtered.map(movie => (
-                                                <li id="search-result">
-                                                    <Link
-                                                        to={`/movies/${movie.id}`}
-                                                    >
-                                                    <img className="search-thumbnail" src={movie.photoUrl} />{movie.title}
-                                                    </Link>
-                                                </li>
-                                        ))
-                                    }
+                                    <div id="search-result-div">
+                                        {
+                                            this.state.filtered.map(movie => (
+
+                                                    <li id="search-results">
+                                                        <Link
+                                                            to={`/movies/${movie.id}`}
+                                                        >
+                                                        <img className="search-thumbnail" src={movie.photoUrl} />{movie.title}
+                                                        </Link>
+                                                    </li>
+                                            ))
+                                        }
+                                    </div>
                                     <div className='search-icon' onClick = {this.toggle}>
                                         <i className="fas fa-search"></i>
                                     </div>

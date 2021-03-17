@@ -1,12 +1,44 @@
 import React from 'react';
 import NavBarContainer from '../navbar/navbar_container';
 import MovieIndexItem from '../movie_index/movie_index_item';
+import { fetchWatchlist } from '../../util/watchlist_api_util';
 
 class Watchlist extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            watchlist: [],
+        }
+
+        this.handleDelete = this.handleDelete.bind(this);
+        this.setList = this.setList.bind(this);
+    }
+
     componentDidMount() {
-        this.props.fetchWatchlist();
+        this.props.fetchWatchlist().then(list => 
+            this.setList(list)
+        );
+
         this.props.fetchMovies();
     }
+
+    setList(list) {
+        console.log(list);
+
+        // console.log(watchlistIds);
+    }
+
+    handleDelete(id) {
+        let currentList = this.state.watchlist;
+        let newList = currentList.filter(movie => (
+            movie.id != id
+        ))
+
+        this.setState({
+            watchlist: newList,
+        })
+    }
+
 
     render() {
         if ( !this.props.movies ) {
@@ -17,12 +49,10 @@ class Watchlist extends React.Component {
             return null;
         }
 
-
-        let { watchlist, movies, removeFromWatchlist } = this.props;
         
+        let { watchlist, movies, removeFromWatchlist } = this.props;
         watchlist = watchlist.map(list => list.movieId)
 
-    
 
         if (!movies[watchlist[0]]) {
             return null;
@@ -41,6 +71,7 @@ class Watchlist extends React.Component {
                         movie={movies[movieId]}
                         key={movieId}
                         removeFromWatchlist={removeFromWatchlist}
+                        watchlistState = {this.state.watchlist}
                     />                       
                     ))
                 }     

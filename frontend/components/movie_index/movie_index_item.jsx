@@ -7,7 +7,6 @@ class MovieIndexItem extends React.Component {
         super(props);
         this.state = {
             hover: false,
-            delete: false,
         }
 
         this.handleAdd = this.handleAdd.bind(this);
@@ -27,11 +26,6 @@ class MovieIndexItem extends React.Component {
         e.preventDefault();
         const movie = Object.assign({}, {movie_id: this.props.movie.id});
         this.props.removeFromWatchlist(movie.movie_id);
-        this.setState({
-            delete: !this.state.delete,
-        })
-
-        console.log(this.state.delete);
     }
 
     onMouseEnterHandler() {
@@ -82,7 +76,7 @@ class MovieIndexItem extends React.Component {
                         onMouseEnter = {this.onMouseEnterHandler}
                         onMouseLeave = {this.onMouseLeaveHandler}
                         >
-                        <i class="fas fa-minus-circle"></i>
+                        <i className="fas fa-minus-circle"></i>
                     </button>
         }else{
             display = <img id='thumbnail-img' 

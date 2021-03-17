@@ -17,7 +17,7 @@ Newflix is a Netflix Clone allows for users to watch and stream movie trailers o
 
 Frontend and backend user authentification. Sign up, sign in, and sign out supported through the use of session tokens and bootstrapping. 
 
-![Sign In](https://github.com/Justinlf55/Newflix/blob/master/app/assets/images/Screen%20Shot%202020-02-24%20at%201.33.39%20AM.png?raw=true)
+![Sign In](https://github.com/Justinlf55/Newflix/blob/master/app/assets/images/signin.gif?raw=true)
 
 
 

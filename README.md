@@ -19,59 +19,66 @@ Frontend and backend user authentification. Sign up, sign in, and sign out suppo
 
 ![Sign In](https://github.com/Justinlf55/Newflix/blob/master/app/assets/images/signin.gif?raw=true)
 
-
-
-
-There is a demo sign in feature if a user does not have time to sign up. 
+For both creation of a user and to sign in for an existing user, a form is used to verify the input information.  Specified functions in the frontend compact data from the login or sign up forms into JSON objects, which then are sent to the backend through the proper AJAX route.  The data then triggers the corresponding backend route, through the controller, and eventually directed and saved in the User table in the PostgreSQL database.  
 
 ```
-  handleDemoSubmit(e) {
-    e.preventDefault();
-    const user = Object.assign({},{
-      email: 'demo@gmail.com',
-      password: '123456'
-    })
-    this.demo(user)
-  }
+handleSubmit(e) {
+  e.preventDefault();
+  const user = Object.assign({}, this.state);
+  setTimeout((this.props.processForm(user)),this.totalTimer);
+}
 
- 
-  demo(user) {
-    const intervalSpeed = 75;
-    const { email, password } = user;
-    const demoEmailTime = email.length * intervalSpeed;
-    const demoPasswordTime = password.length * intervalSpeed;
-    const buffer = intervalSpeed * 2;
-    const totalDemoTime = demoEmailTime + demoPasswordTime + buffer;
-    this.totalTimer = demoEmailTime + demoPasswordTime;
-    this.demoEmail(email, intervalSpeed);
-    setTimeout(() => this.demoPassword(password, intervalSpeed), demoEmailTime);
-    setTimeout(() => this.props.processForm(user), totalDemoTime)
-  }
+```
+The function above takes the data input from the form (code below), assigning the data into a JSON object, which is then passed through a the 'processForm' function dispatched to the component, eventually being saved to the database by the process explained previously.  
 
-  demoEmail(email, intervalSpeed) {
-    let i = 0;
-    setInterval(() => {
-      if (i <= email.length) {
-        this.setState({ email: email.slice(0, i) })
-        i++
-      } else {
-        clearInterval()
-      }
-    }, intervalSpeed);
-  }
+```
 
-  demoPassword(password, intervalSpeed) {
-    let j = 0;
-    setInterval(() => {
-      if (j <= password.length) {
-        this.setState({ password: password.slice(0, j) })
-        j++
-      } else {
-        clearInterval();
-      }
-    }, intervalSpeed);
-  }
- ```
+<form onSubmit={this.handleSubmit} className='signin-form-container'>
+  <br/>
+  <h1 className='session-form-title'>{this.props.formType}</h1>
+  <div className="login-form">
+    <label>
+      <input 
+        type="text"
+        placeholder='Email'
+        value={this.state.email}
+        onChange={this.update('email')}
+        className="signin-input"
+      />
+    </label>
+    <div className='session-errors-div'>
+      <h5 className='session-errors'>{this.renderErrors()}</h5>
+    </div>
+    <label>
+      <input 
+        type="password"
+        value={this.state.password}
+        placeholder='Password'
+        onChange={this.update('password')}
+        className="signin-input"
+      />
+    </label>
+    <br/>
+    <input 
+      className="session-submit" 
+      type="submit" 
+      value={this.props.formType} 
+      />
+    <input 
+      className="demo-submit" 
+      type="submit" 
+      value='Demo Sign In' 
+      onClick={this.handleDemoSubmit}
+      />
+    <br/>
+    <label>Remember Me</label>
+      <input type="radio" name="radio" id="radio1"></input>
+  </div>
+  <br/>
+    {display}
+</form>
+
+```
  
  
  
@@ -151,7 +158,5 @@ When a movie thumbnail is clicked, user is redirected to show page, which plays 
 
 **Future Features**
 
-+ Search Bar, which will allow for searching to search by movie. 
-+ Improved carousel to scroll left and right when browsing on index page or genre pages
-+ Sub-genres to fill out Genre show pages
+
 

@@ -19,7 +19,7 @@ Frontend and backend user authentification. Sign up, sign in, and sign out suppo
 
 ![Sign In](https://github.com/Justinlf55/Newflix/blob/master/app/assets/images/signin.gif?raw=true)
 
-For both creation of a user and to sign in for an existing user, a form is used to verify the input information.  Specified functions in the frontend compact data from the login or sign up forms into JSON objects, which then are sent to the backend through the proper AJAX route.  The data then triggers the corresponding backend route, through the controller, and eventually directed and saved in the User table in the PostgreSQL database.  
+For both creation of a user and to sign in for an existing user, a form is used to verify the input information.  Specified functions in the frontend compact data from the login or sign up forms into JSON objects, passed through the Redux.JS cycle (action functions, reducers, etc), then are sent to the backend through the proper AJAX route after .  The data then triggers the corresponding backend route, through the controller, and eventually is directed and saved in the User table in the PostgreSQL database.  
 
 ```
 handleSubmit(e) {
@@ -79,8 +79,23 @@ The function above takes the data input from the form (code below), assigning th
 </form>
 
 ```
+
+The HTML code above, is the form implemented in the render function on the React component, which handles the sign up and sign in process.  Here, the built in 'onClick' function is used to call the 'handleSubmit' function with the data input into the form.  
  
- 
+```
+    def create
+      @user = User.new(user_params)
+      if @user.save
+        login(@user)
+        render json: @user
+      else
+        render json: @user.errors.full_messages, status: 401
+      end
+    end
+
+```
+
+The Ruby code above is from the backend Users Controller, which creates a new user in the database as long as the proper paramaters are met, if not an error is sent back to the frontend as a JSON object and displayed to the user, so data can be corrected.  A user is automatically signed in with a new session token as a new session is created once sign up is successful.  Signing in an existing user works in a similar way, except instead of creating a new user, the function searches for an existing user with matching credentials to sign in.  After, user is found, the new session is created and a new session token is assigned.  Logging out a user, or ending a session, destroys the user's current session token, which ends the current session and redirects back to the login page.  
  
  
  

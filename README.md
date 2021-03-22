@@ -183,7 +183,9 @@ In the backend, RESTful routes manage the requests and distribute these requests
 
 *Watchlist*
 
-A watchlist allows users to add and remove movies from their watchlist.
+A user can add videos to their watchlist to save for later. 
+
+![Watchlist](https://github.com/Justinlf55/Newflix/blob/master/app/assets/images/watchlist.gif?raw=true)
 
 
 ``` 
@@ -221,6 +223,8 @@ The movie added is then added to the watchlist by a futher association under the
         <button className='watchlist-btn'><i className="fas fa-plus"></i></button>
     </form>
 ```
+
+The above code compacts a form into a button (plus icom), which is displayed on each thumbnail when hovered over.  This button then passes the particular video's id and other information to the 'handeSubmit', which then adds the video to the user's watchlist, and vice versa, in terms of deleting a video from the watchlist (minus icon). 
 
 
 

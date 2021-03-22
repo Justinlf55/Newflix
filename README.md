@@ -21,7 +21,7 @@ Newflix is a Netflix Clone allows for users to watch and stream movie trailers o
 A friendly User Interface allows for users to navigate the applications and make requests to the backend.  Through AJAX calls, requests to the backend can be made asynchronously.  These requests are processed through the corresponding RESTful route in the backend.  Another key conecpt implemented, is the Objected Oriented Programming, which allows for efficient and organized movement and storage of data throughout the application by compacting all data into JSON objects. 
 
 **Features**
-
+*User Authorization*
 Frontend and backend user authentification. Sign up, sign in, and sign out supported through the use of session tokens and bootstrapping. 
 
 ![Sign In](https://github.com/Justinlf55/Newflix/blob/master/app/assets/images/signin.gif?raw=true)
@@ -103,7 +103,6 @@ The HTML code above, is the form implemented in the render function on the React
 ```
 
 The Ruby code above is from the backend Users Controller, which creates a new user in the database as long as the proper paramaters are met, if not an error is sent back to the frontend as a JSON object and displayed to the user, so data can be corrected.  A user is automatically signed in with a new session token as a new session is created once sign up is successful.  Signing in an existing user works in a similar way, except instead of creating a new user, the function searches for an existing user with matching credentials to sign in.  After, user is found, the new session is created and a new session token is assigned.  Logging out a user, or ending a session, destroys the user's current session token, which ends the current session and redirects back to the login page.  
- 
  
  
 Genre pages are implemented and are accessed through a dropdown menu on the movies index page.  Each genre page contains only movies associated with that specified genre.  

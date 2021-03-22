@@ -185,9 +185,6 @@ In the backend, RESTful routes manage the requests and distribute these requests
 
 A user can add videos to their watchlist to save for later. 
 
-![Hover](https://github.com/Justinlf55/Newflix/blob/master/app/assets/images/hover.gif?raw=true)
-
-
 
 ``` 
     def create
@@ -232,6 +229,7 @@ The above code compacts a form into a button (plus icom), which is displayed on 
 
 Movie thumbnails are hoverable and play a muted trailer once hovered over
 
+![Hover](https://github.com/Justinlf55/Newflix/blob/master/app/assets/images/hover.gif?raw=true)
 
 ```
     onMouseEnterHandler() {

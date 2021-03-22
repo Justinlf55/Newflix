@@ -225,7 +225,7 @@ The movie added is then added to the watchlist by a futher association under the
 The above code compacts a form into a button (plus icom), which is displayed on each thumbnail when hovered over.  This button then passes the particular video's id and other information to the 'handeSubmit', which then adds the video to the user's watchlist, and vice versa, in terms of deleting a video from the watchlist (minus icon). 
 
 
-*Other Features*
+*Hover feature*
 
 Movie thumbnails are hoverable and play a muted trailer once hovered over
 
@@ -268,9 +268,65 @@ Movie thumbnails are hoverable and play a muted trailer once hovered over
   ```
 
 
-The code above leverages the React 'setState' function.  The 'onMouseEnterHandler' and 'onMouseLeaveHandler' uses 'setState' to manipulate the 'hover' state of the component.  Depending on the the value of the 'hover' state, true or false, a thumbnail or a trailer is presented.  When 'hover' is true, the video thumbnail expands and a trailer plays, otherwise, only the thumbnail is displayed.  
+The code above leverages the React 'setState' function.  The 'onMouseEnterHandler' and 'onMouseLeaveHandler' uses 'setState' to manipulate the 'hover' state of the component.  Depending on the the value of the 'hover' state, true or false, a thumbnail or a trailer is presented.  When 'hover' is true, the video thumbnail expands and a trailer plays, otherwise, only the thumbnail is displayed. 
 
+*Search* 
 
+A custom search algorithm is implemented on the frontend.  
+
+```
+    componentDidMount() {
+        this.props.fetchMovies();
+    }
+```
+```
+    filterMovies(e) {
+        let movies = Object.values(this.props.movies);
+        let genres = Object.values(this.props.genres);
+        
+        movies = movies.filter(movie => {
+            return movie.title.toLowerCase().includes(e.target.value);
+        })
+
+        this.setState({
+            filtered: movies,
+        })
+    };
+```
+```
+    <input id='nav-search' type="text" placeholder="Movies, Genres" onChange={this.filterMovies} />
+```
+
+The 'fetchMovies' function is dispatched to the NavBar component in the same manner as it is dispatched to the homepage.  Once the component mounts and all the movies are retrieved from the database, the data can be used in the 'filterMovies' function in the form of props.  The user can input a title or genre in the form of a string, which is then passed to the 'filterMovies' function via the built-in 'onChange' function.  
+
+**Development**
+
+*Running application on local host/server*
+
+```
+$ bunle install
+```
+Once the Ruby on Rails application is set up with postgreSQL, you must make sure all Ruby gems (dependencies) are installed by running the terminal command above.
+
+```
+$ rails -server
+```
+
+After all gems are intalled, the backend can be run locally using the terminal command above.  
+
+```
+$ npm install
+```
+
+Once the rails server is up an running, install all frontend dependencies by running the termianl command above.  
+
+```
+$ npm start
+```
+
+After the frontend dependencies are installed, you can run the scripts using the 'npm start' as shown above. 
+
+The application should then be accessible on http://localhost:3000 
 
 
 

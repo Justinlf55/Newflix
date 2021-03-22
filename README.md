@@ -168,7 +168,7 @@ Once signed in, the user is directed to the homepage, which presents a featured 
 
 A dropdown menu allows for the user to direct themselves to a specified genre page, which contains all the videos in the database that pertain to that selected genre.  
 
-![Demo Dropdown](https://github.com/Justinlf55/Newflix/blob/master/app/assets/images/GenreDrpDwnScreenShot.png?raw=true)
+![Demo Dropdown](https://github.com/Justinlf55/Newflix/blob/master/app/assets/images/Homeandgenre.mov?raw=true)
 
 ```
     componentDidMount() {

@@ -195,6 +195,10 @@ A watchlist allows users to add and remove movies from their watchlist.
     end
 ```
 
+
+
+Initially, a user is created without a watchlist.  However, when the user adds their first movie, a new watchlist is created in the Watchlist Controller.  The function above shows that the new watchlist created is automatically associated with the current or signed in user.  
+
 ```
     has_one :watchlist
     has_many :watchlist_movies, 
@@ -202,8 +206,7 @@ A watchlist allows users to add and remove movies from their watchlist.
     foreign_key: :user_id,
     class_name: :Watchlist
 ```
-
-Initially, a user is created without a watchlist.  However, when the user adds their first movie, a new watchlist is created in the Watchlist Controller.  The function above shows that the new watchlist created is automatically associated with the current or signed in user.  The movie added is then added to the watchlist by a futher association under the User model as shown above. 
+The movie added is then added to the watchlist by a futher association under the User model as shown above.  Inversely, that same association is destroyed when a user makes a request to delete that particular movie from their watchlist.  
 
 ```
     handleSubmit(e) {

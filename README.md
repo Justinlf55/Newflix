@@ -22,6 +22,43 @@ Newflix is a Netflix Clone allows for users to watch and stream movie trailers o
 
 A friendly User Interface allows for users to navigate the applications and make requests to the backend.  Through AJAX calls, requests to the backend can be made asynchronously.  These requests are processed through the corresponding RESTful route in the backend.  Another key conecpt implemented, is the Objected Oriented Programming, which allows for efficient and organized movement and storage of data throughout the application by compacting all data into JSON objects. 
 
+*Sample code for RESTful routes*
+
+```
+Rails.application.routes.draw do
+  namespace :api, defaults: { format: :json } do 
+    resources :users, only: [:create, :update]
+    resource :session, only: [:create, :destroy]
+    resources :movies, only: [:index, :show]
+    resources :genres, only: [:index, :show]
+    resources :watchlists, only: [:index, :create, :destroy]
+    resources :movie_genres, only: [:create]
+  end
+
+  root to: 'static_pages#root'
+end
+```
+
+*Sample code for AJAX calls*
+```
+export const fetchMovies = movies => (
+    $.ajax({
+      method: 'GET',
+      url: 'api/movies',
+      movies
+    })
+  );
+
+export const fetchMovie = id => (
+  $.ajax({
+      method: 'GET',
+      url: `api/movies/${id}`
+    })
+  );
+```
+
+Notice how these AJAX calls take in data in the form of JSON objects. 
+
 **Features**
 
 *User Authorization*
@@ -110,11 +147,22 @@ The Ruby code above is from the backend Users Controller, which creates a new us
  
 *Homepage and Genre Pages*
 
-Genre pages are implemented and are accessed through a dropdown menu on the movies index page.  Each genre page contains only movies associated with that specified genre.  
+Once signed in, the user is directed to the homepage, which presents a featured video along with an index of all the trailers in the Newflix database.  
+
+A dropdown menu allows for the user to direct themselves to a specified genre page, which contains all the videos in the database that pertain to that selected genre.  
+
 ![Demo Dropdown](https://github.com/Justinlf55/Newflix/blob/master/app/assets/images/GenreDrpDwnScreenShot.png?raw=true)
-![Genre Show Page](https://github.com/Justinlf55/Newflix/blob/master/app/assets/images/GenreExampleScreenshot.png?raw=true)
 
+```
+    componentDidMount() {
+        this.props.fetchMovies();
+        this.props.fetchGenres();
+    }
+```
 
+Leveraging the built-in React function, 'componentDidMount', shown above, allows for the dispatched functions 'fetchMovies' and 'fetchGenres' to call automatically after the component is loaded successfully.  These two functions make calls to the backend to retrieve all the videos from the backend as well as separated lists of these movies separated into their associated genres for use in the component.  
+
+In the backend, RESTful routes manage the requests and distribute these requests to the proper rails controller.  
 
 *Watchlist*
 

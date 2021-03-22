@@ -17,9 +17,6 @@ class MovieIndex extends React.Component {
     componentDidMount() {
         this.props.fetchMovies();
         this.props.fetchGenres();
-        // for (let i = 1; i < 9; i++) {
-        //     this.props.fetchGenre(i);
-        // }
         const video = document.getElementById('back-video');
         video.play();
     }
@@ -33,9 +30,6 @@ class MovieIndex extends React.Component {
 
 
     render() {   
-        // console.log('props');
-        // console.log(this.props);
-        
         if (!this.props.movies[0]) this.props.movies[0] = '';
 
         const { movies, addToWatchlist, removeFromWatchlist, genres } = this.props;

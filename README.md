@@ -185,8 +185,6 @@ In the backend, RESTful routes manage the requests and distribute these requests
 
 A user can add videos to their watchlist to save for later. 
 
-![Watchlist](https://github.com/Justinlf55/Newflix/blob/master/app/assets/images/watchlist.gif?raw=true)
-
 
 ``` 
     def create
@@ -227,10 +225,12 @@ The movie added is then added to the watchlist by a futher association under the
 The above code compacts a form into a button (plus icom), which is displayed on each thumbnail when hovered over.  This button then passes the particular video's id and other information to the 'handeSubmit', which then adds the video to the user's watchlist, and vice versa, in terms of deleting a video from the watchlist (minus icon). 
 
 
-
-
+*Other Features*
 
 Movie thumbnails are hoverable and play a muted trailer once hovered over
+
+![Hover](https://github.com/Justinlf55/Newflix/blob/master/app/assets/images/hover.gif?raw=true)
+
 
 ```
     onMouseEnterHandler() {
@@ -269,10 +269,7 @@ Movie thumbnails are hoverable and play a muted trailer once hovered over
   ```
 
 
-
-
-
-When a movie thumbnail is clicked, user is redirected to show page, which plays the trailer for the clicked movie
+The code above leverages the React 'setState' function.  The 'onMouseEnterHandler' and 'onMouseLeaveHandler' uses 'setState' to manipulate the 'hover' state of the component.  Depending on the the value of the 'hover' state, true or false, a thumbnail or a trailer is presented.  When 'hover' is true, the video thumbnail expands and a trailer plays, otherwise, only the thumbnail is displayed.  
 
 
 

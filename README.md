@@ -328,7 +328,9 @@ After the frontend dependencies are installed, you can run the scripts using the
 
 The application should then be accessible on http://localhost:3000 
 
-Future Improvements
+Future Improvements (Assume growing number of users)
+*Load Balancing
+*Caching system (Reddis)
 
 
 

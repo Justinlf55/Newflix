@@ -329,8 +329,8 @@ After the frontend dependencies are installed, you can run the scripts using the
 The application should then be accessible on http://localhost:3000 
 
 **Future Improvements (Assume growing number of users)**
-+Load Balancing
-+Caching system - Reddis is a perfect system as it stores key-value pairs, whic his perfect for JSON objects
++ Load Balancing - load balancing servers in a round robin approach as user numbers begin to scale
++ Caching system - Reddis is a perfect system as it stores key-value pairs, whic his perfect for JSON objects
 
 
 

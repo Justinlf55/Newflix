@@ -332,6 +332,9 @@ The application should then be accessible on http://localhost:3000
 + Load Balancing - load balancing servers in a round robin approach as user numbers begin to scale
 + Caching system - Reddis is a perfect system as it stores key-value pairs, whic his perfect for JSON objects
 
+**Future UI Design Decisions**
++ Carousel - will want to emulate Netflix even more by adding a carousel feature 
+
 
 
 
